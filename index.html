@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#191815">
+  <meta name="description" content="Praktyczna mapa Wenecji: atrakcje, restauracje, noclegi i transport. Otwieraj pinezki w Google Maps.">
+  <title>Wenecja – interaktywna mapa miejsc</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+  <link rel="stylesheet" href="assets/styles.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script defer src="assets/places.js"></script>
+  <script defer src="assets/app.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="shell heading">
+      <div>
+        <p class="eyebrow">PRYWATNY PRZEWODNIK · WENECJA</p>
+        <h1>Wenecja <span>na mapie.</span></h1>
+        <p class="intro">Konkretne miejsca, sprawdzone podpowiedzi i pinezki prowadzące prosto do Google Maps.</p>
+      </div>
+      <div class="header-art" aria-hidden="true">
+        <svg viewBox="0 0 320 150" fill="none"><path d="M15 117 C65 42 250 42 304 117" stroke="currentColor" stroke-width="2"/><path d="M90 85 L90 117 M135 70 L135 117 M180 67 L180 117 M225 78 L225 117" stroke="currentColor" stroke-width="1.5"/><path d="M12 117H308 M15 132H304" stroke="currentColor" stroke-width="1.3"/><path d="M274 20V117 M260 20H288V31H260Z" stroke="currentColor" stroke-width="1.5"/></svg>
+      </div>
+    </div>
+  </header>
+  <main class="shell layout">
+    <section class="sidebar" aria-label="Lista miejsc">
+      <div class="sidebar-top">
+        <div class="section-header"><h2>Odkryj miejsca</h2><span id="count" aria-live="polite">47 miejsc</span></div>
+        <label class="search-wrap" for="search">Szukaj po nazwie lub opisie</label>
+        <input id="search" type="search" placeholder="np. Rialto, pizza, vaporetto…" autocomplete="off">
+        <div class="filters" id="filters" aria-label="Filtr kategorii">
+          <button type="button" data-category="wszystkie" class="filter active" aria-pressed="true">Wszystkie</button>
+          <button type="button" data-category="atrakcje" class="filter" aria-pressed="false"><span class="dot attractions"></span>Atrakcje</button>
+          <button type="button" data-category="jedzenie" class="filter" aria-pressed="false"><span class="dot food"></span>Jedzenie</button>
+          <button type="button" data-category="noclegi" class="filter" aria-pressed="false"><span class="dot lodging"></span>Noclegi</button>
+          <button type="button" data-category="transport" class="filter" aria-pressed="false"><span class="dot transit"></span>Transport</button>
+        </div>
+      </div>
+      <div id="places-list" class="places" aria-live="polite"></div>
+    </section>
+    <section class="map-section" aria-label="Interaktywna mapa">
+      <div class="map-head">
+        <span class="map-title">MAPA MIEJSC</span>
+        <button id="reset-map" type="button" class="reset">Wróć do centrum Wenecji ↗</button>
+      </div>
+      <div id="map" class="map" aria-label="Interaktywna mapa z punktami"></div>
+      <div id="fallback" class="fallback" hidden aria-label="Poglądowy schemat miejsc"></div>
+      <div class="map-note" id="map-note">Kliknij znacznik albo wybierz miejsce z listy. Do nawigacji użyj „Google Maps”.</div>
+    </section>
+  </main>
+  <footer class="shell footer">
+    <p>Mapa przedstawia orientacyjne rozmieszczenie punktów. Nawigację do konkretnego miejsca uruchamiaj przez Google Maps.</p>
+    <p>Podkład: © OpenStreetMap contributors · Interfejs mapy: Leaflet. Numery kontaktowe nie są publikowane na tej publicznej stronie.</p>
+  </footer>
+</body>
+</html>
